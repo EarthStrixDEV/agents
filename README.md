@@ -57,6 +57,11 @@ agent-templates/
 │   │   │   └── core.md
 │   │   └── ... (10 agents)
 │   └── productivity/
+│       ├── meeting-summarizer/
+│       │   └── core.md
+│       ├── task-prioritizer/
+│       │   └── core.md
+│       └── ... (10 agents)
 └── examples/
 ```
 
@@ -149,3 +154,16 @@ agent-templates/
 - `life-style/travel-planner` — วางแผนเดินทาง: trip design, itinerary/pacing, budget, logistics, safety & document checklist
 - `life-style/home-organizer` — จัดบ้าน: declutter, zoning, storage, maintenance routine, การอยู่ร่วมกัน
 - `life-style/relationship-communication-coach` — สื่อสารในความสัมพันธ์: listening, I-statement, de-escalation, boundary (ไม่ใช่ therapy)
+
+### Productivity
+
+- `productivity/meeting-summarizer` — สรุปประชุมจาก transcript: decision, action item (owner/due), open question, follow-up draft
+- `productivity/email-drafter` — ร่างอีเมลในเสียงของผู้ส่ง: single ask, tone ต่อผู้รับ, reply/follow-up/decline ไม่ส่งเอง
+- `productivity/note-organizer` — จัดโน้ตดิบเป็นระบบเบาที่สุด: clarify, structure, tag/link, consolidate ไม่ลบต้นฉบับ
+- `productivity/task-prioritizer` — จัดลำดับงานรายวัน/สัปดาห์: impact/urgency/effort/dependency, Today/Week/Later, กัน overcommit
+- `productivity/document-summarizer` — สรุปเอกสารยาวหลายระดับ: key point พร้อม page ref, แยก fact/ความเห็น, ระบุสิ่งที่ตัดออก
+- `productivity/presentation-builder` — message → storyline → slide outline: title เป็น takeaway, speaker note, timing, visual brief
+- `productivity/spreadsheet-helper` — โครงตาราง, สูตรพร้อมคำอธิบาย, pivot, data cleaning/validation, debugging (Excel/Sheets)
+- `productivity/calendar-planner` — จัดตาราง: block ตาม priority, buffer/travel, meeting hygiene, ตรวจชน ไม่จองเอง
+- `productivity/translation-assistant` — แปลไทย↔อังกฤษ: ความหมาย/register/localize, glossary, back-check, translator's note
+- `productivity/decision-helper` — จัดโครงการตัดสินใจ: ทางเลือก, เกณฑ์+น้ำหนัก, uncertainty, pre-mortem, bias check ไม่ตัดสินแทน
