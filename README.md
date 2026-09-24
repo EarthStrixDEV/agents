@@ -1,6 +1,177 @@
-# agent-templates
+<div align="center">
+
+# 🧩 agent-templates
+
+**คลัง Agent เฉพาะทาง 77 ตัว พร้อมติดตั้งลง Claude Code, Codex และ Claude Cowork ด้วยคำสั่งเดียว**
+
+![agents](https://img.shields.io/badge/agents-77-6366f1?style=flat-square)
+![categories](https://img.shields.io/badge/categories-7-8b5cf6?style=flat-square)
+![node](https://img.shields.io/badge/node-%E2%89%A518-339933?style=flat-square&logo=node.js&logoColor=white)
+![dependencies](https://img.shields.io/badge/dependencies-0-22c55e?style=flat-square)
+
+[มือใหม่เริ่มที่นี่](#-มือใหม่เริ่มที่นี่) · [ติดตั้งผ่าน terminal](#-ติดตั้ง) · [ถอนการติดตั้ง](#-ถอนการติดตั้ง) · [ตัวเลือกทั้งหมด](#%EF%B8%8F-ตัวเลือกทั้งหมด) · [รายชื่อ Agent](#agents-ปัจจุบัน)
+
+</div>
 
 คลังเก็บ Agent เฉพาะทางแบบ reusable — นิยาม persona, knowledge และ guardrail ของแต่ละ agent ไว้ที่เดียว แล้วนำไปใช้กับ platform ใดก็ได้ในภายหลัง
+
+---
+
+## 👋 มือใหม่เริ่มที่นี่
+
+ไม่ต้องพิมพ์คำสั่งใดๆ ทำตาม 3 ขั้นนี้ได้เลย ใช้เวลาประมาณ 5 นาที
+
+### ขั้นที่ 1 · ดาวน์โหลดไฟล์
+
+1. ที่หน้านี้บน GitHub กดปุ่มสีเขียว **`<> Code`** แล้วเลือก **Download ZIP**
+2. เปิดไฟล์ ZIP ที่ได้ แล้วกด **Extract All** (Windows) หรือดับเบิลคลิก (Mac) เพื่อแตกไฟล์เป็นโฟลเดอร์
+
+### ขั้นที่ 2 · ติดตั้ง Node.js (ทำครั้งเดียว)
+
+ตัวติดตั้งต้องใช้โปรแกรมชื่อ Node.js ถ้าเคยติดตั้งแล้วข้ามขั้นนี้ได้ ถ้าไม่แน่ใจก็ข้ามไปขั้นที่ 3 ได้เลย ตัวติดตั้งจะบอกเองถ้ายังไม่มี
+
+1. เข้า [nodejs.org](https://nodejs.org) แล้วกดปุ่มดาวน์โหลดรุ่น **LTS**
+2. เปิดไฟล์ที่ดาวน์โหลดมา แล้วกด **Next** / **Continue** ไปจนเสร็จ
+
+### ขั้นที่ 3 · ดับเบิลคลิกตัวติดตั้ง
+
+เปิดโฟลเดอร์ที่แตกไว้ในขั้นที่ 1 แล้วดับเบิลคลิก
+
+| เครื่อง | ไฟล์ที่ต้องดับเบิลคลิก |
+|---|---|
+| 🪟 Windows | **`install.cmd`** |
+| 🍎 Mac | **`install.command`** |
+
+จะมีหน้าต่างสีดำขึ้นมาถามทีละข้อ ใช้แค่ 3 ปุ่มนี้
+
+| ปุ่ม | ใช้ทำอะไร |
+|---|---|
+| `↑` `↓` | เลื่อนขึ้นลง |
+| `Space` | ติ๊กเลือก / เอาติ๊กออก |
+| `Enter` | ยืนยันแล้วไปข้อถัดไป |
+
+> 💡 **ไม่แน่ใจข้อไหน ให้กด `Enter` ไปเลย** ค่าที่เลือกไว้ให้เป็นค่าที่แนะนำแล้ว
+> ตอนถามว่าติดตั้งที่ไหน ให้เลือก **Everywhere (Recommended)**
+
+พอเห็นกรอบสีเขียว **✔ Installed** แปลว่าเสร็จแล้ว ปิดหน้าต่างได้เลย
+
+<details>
+<summary><b>🍎 Mac ขึ้นว่าเปิดไฟล์ไม่ได้ / ไม่ได้รับอนุญาต</b></summary>
+
+<br>
+
+- **"cannot be opened because it is from an unidentified developer"** → คลิกขวาที่ `install.command` เลือก **Open** แล้วกด **Open** อีกครั้ง
+- **"you do not have access privileges"** → เปิดแอป **Terminal** พิมพ์ `chmod +x ` (มีเว้นวรรคท้าย) แล้วลากไฟล์ `install.command` มาวางในหน้าต่าง กด `Enter` จากนั้นดับเบิลคลิกใหม่
+
+</details>
+
+### เริ่มใช้งาน
+
+| Tool | วิธีใช้ |
+|---|---|
+| **Claude Code** | ปิดแล้วเปิด Claude Code ใหม่ จากนั้นพิมพ์ `/` ตามด้วยชื่อ agent เช่น `/copywriter` หรือเล่างานที่อยากให้ทำไปเลย Claude จะเลือก agent ที่เหมาะให้เอง |
+| **Codex** | ปิดแล้วเปิด Codex ใหม่ แล้วเล่างานที่อยากให้ทำ |
+| **Claude Cowork** | อัปโหลดไฟล์ `dist/agent-templates.plugin` ในแอป Cowork |
+
+ดูรายชื่อ agent ทั้งหมดได้ที่ [Agents ปัจจุบัน](#agents-ปัจจุบัน)
+
+**อยากถอนการติดตั้ง?** ดับเบิลคลิกไฟล์เดิมอีกครั้ง แล้วเลือก **Uninstall** ในข้อแรก
+
+---
+
+## 🚀 ติดตั้ง
+
+สำหรับคนที่ใช้ terminal เป็น — ผลลัพธ์เหมือนการดับเบิลคลิกทุกอย่าง
+
+> **สิ่งที่ต้องมี:** [Node.js](https://nodejs.org) 18 ขึ้นไป — ไม่ต้อง `npm install` อะไรเพิ่ม
+
+เปิด terminal ที่โฟลเดอร์ `agent-templates` แล้วรัน
+
+```bash
+node install.mjs
+```
+
+ตัวติดตั้งจะพาไปทีละขั้น
+
+| ขั้น | ถามอะไร | วิธีตอบ |
+|:---:|---|---|
+| 1 | Install หรือ Uninstall | `↑` `↓` เลือก แล้ว `Enter` |
+| 2 | ติดตั้งลง tool ไหน | `Space` ติ๊ก · `a` เลือกทั้งหมด · `Enter` ยืนยัน |
+| 3 | เอาหมวดไหนบ้าง | ติ๊กไว้ทุกหมวดเป็นค่าเริ่มต้น |
+| 4 | ติดตั้งที่ไหน | **Everywhere** = ใช้ได้ทุกโฟลเดอร์ · **One project folder only** = เฉพาะโฟลเดอร์นั้น |
+| 5 | สรุปและยืนยัน | `Y` ติดตั้ง · `N` ยกเลิก |
+
+กด `Ctrl+C` เพื่อยกเลิกได้ทุกเมื่อ
+
+### ติดตั้งแล้วไปอยู่ที่ไหน
+
+| Tool | ตำแหน่ง | สิ่งที่ได้ |
+|---|---|---|
+| **Claude Code** | `~/.claude/skills/<name>/`<br>`~/.claude/agents/<name>.md` | Skill เรียกด้วย `/<name>` และ Subagent ที่ Claude เรียกใช้เองได้ |
+| **Codex** | `~/.codex/skills/<name>/` | Skill |
+| **Claude Cowork** | `dist/agent-templates.plugin` | ไฟล์ plugin สำหรับอัปโหลดเข้าแอป Cowork |
+
+> 💡 เลือก **One project folder only** แล้ว `~` จะเปลี่ยนเป็น path ของโปรเจกต์นั้นแทน
+> ติดตั้งเสร็จแล้ว **restart tool** หนึ่งครั้งเพื่อโหลด skill ใหม่
+
+### ติดตั้งแบบคำสั่งเดียว (ไม่ต้องตอบคำถาม)
+
+เหมาะกับ script หรือ CI — ใส่ `--tool` แล้วตัวติดตั้งจะข้ามทุกคำถาม
+
+```bash
+# ทุก agent ลงทุก tool
+node install.mjs --tool all
+
+# เฉพาะสาย dev ลง Claude Code ในโปรเจกต์
+node install.mjs --tool claude-code --category software-engineering --project ./my-app
+
+# สร้าง plugin สำหรับ Cowork เฉพาะหมวด research กับ productivity
+node install.mjs --tool cowork --category research,productivity
+
+# ดูก่อนว่าจะเขียนไฟล์อะไรบ้าง โดยไม่เขียนจริง
+node install.mjs --tool all --dry-run
+```
+
+## 🧹 ถอนการติดตั้ง
+
+```bash
+node install.mjs --uninstall --tool all
+```
+
+หรือรัน `node install.mjs` แล้วเลือก **Uninstall** ในขั้นแรก
+
+- ลบ **เฉพาะไฟล์ที่ตัวติดตั้งนี้สร้าง** — ถ้ามี skill ของคุณเองที่ชื่อโฟลเดอร์ซ้ำ จะถูกข้ามและแจ้งให้ทราบ
+- ใช้ `--category` และ `--project` ได้เหมือนตอนติดตั้ง ต้องระบุ `--project` ให้ตรงกับตอนติดตั้ง
+- **Cowork:** ลบได้แค่ไฟล์ `.plugin` ในเครื่อง ส่วน plugin ที่อัปโหลดเข้าแอปแล้วต้องลบในแอป Cowork เอง
+
+## ⚙️ ตัวเลือกทั้งหมด
+
+| Flag | ความหมาย | ค่าเริ่มต้น |
+|---|---|---|
+| `--tool <list>` | `claude-code`, `codex`, `cowork` หรือ `all` คั่นด้วย `,` | ถามแบบ interactive |
+| `--category <list>` | หมวดที่ต้องการ คั่นด้วย `,` | ทุกหมวด |
+| `--project <path>` | ติดตั้งลงโปรเจกต์แทน home directory | home directory |
+| `--out <dir>` | โฟลเดอร์สำหรับไฟล์ Cowork `.plugin` | `./dist` |
+| `--uninstall` | ถอนการติดตั้ง | — |
+| `--dry-run` | แสดงผลอย่างเดียว ไม่เขียนหรือลบไฟล์ | — |
+| `--list` | แสดงรายชื่อหมวดและ agent ทั้งหมด | — |
+| `-h`, `--help` | แสดงวิธีใช้ | — |
+
+<details>
+<summary><b>🛠️ แก้ปัญหาที่พบบ่อย</b></summary>
+
+<br>
+
+| อาการ | วิธีแก้ |
+|---|---|
+| `--tool is required when not running in an interactive terminal` | รันใน terminal ปกติ หรือใส่ `--tool` เพื่อใช้แบบคำสั่งเดียว |
+| ติดตั้งแล้วไม่เห็น skill | restart tool ที่ติดตั้ง และตรวจว่าเลือก Everywhere/Project ตรงกับที่เปิดใช้งาน |
+| สีหรือกรอบแสดงผลเพี้ยน | ใช้ terminal ที่รองรับ Unicode (Windows Terminal, iTerm2) หรือตั้ง `NO_COLOR=1` เพื่อปิดสี |
+| ถอนการติดตั้งแล้วขึ้น `Nothing to uninstall` | ตรวจว่า `--project` ตรงกับตอนติดตั้ง |
+
+</details>
+
+---
 
 ## หมวดหมู่
 
@@ -19,9 +190,13 @@
 ```
 agent-templates/
 ├── README.md
+├── install.cmd            ← ดับเบิลคลิกติดตั้ง (Windows)
+├── install.command        ← ดับเบิลคลิกติดตั้ง (Mac)
+├── install.mjs            ← ตัวติดตั้ง / ถอนการติดตั้ง
 ├── agents/
 │   ├── consultant/
 │   │   ├── erp-epicor-consultant/
+│   │   │   ├── SKILL.md
 │   │   │   └── core.md
 │   │   ├── scm-consultant/
 │   │   │   └── core.md
@@ -68,6 +243,7 @@ agent-templates/
 - แต่ละ agent อยู่ในโฟลเดอร์ของตัวเอง ใต้หมวดที่เกี่ยวข้อง
 - `core.md` คือไฟล์หลักของ agent เก็บ persona, scope ความเชี่ยวชาญ, reasoning framework และ guardrail
 - `core.md` เขียนแบบ platform-agnostic ยังไม่ผูกกับ Claude Code, OpenAI, n8n หรือ platform อื่น
+- `SKILL.md` คือ wrapper สำหรับ Claude Code / Codex / Cowork มี `name` และ `description` ไว้ให้ tool ตัดสินใจว่าเมื่อไรควรเรียก แล้วชี้ไปอ่าน `core.md`
 - `examples/` สำหรับตัวอย่างการนำ agent ไปใช้งานจริงในอนาคต
 
 ## Agents ปัจจุบัน
